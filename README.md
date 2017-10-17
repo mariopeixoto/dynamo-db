@@ -1,5 +1,5 @@
 
-`dynamodb` is a [DynamoDB][5] data mapper for [node.js][1].
+`dynamo-db` is a [DynamoDB][5] data mapper for [node.js][1]. It's a fork from [dynamodb][6] with promise support and updated dependencies.
 
 ## Features
 * Simplified data modeling and mapping to DynamoDB types
@@ -12,20 +12,20 @@
 
 ## Installation
 
-    npm install dynamodb
+    npm install dynamo-db
 
 ## Getting Started
 First, you need to configure the [AWS SDK][2] with your credentials.
 
 ```js
-var dynamo = require('dynamodb');
+var dynamo = require('dynamo-db');
 dynamo.AWS.config.loadFromPath('credentials.json');
 ```
 
 When running on EC2 its recommended to leverage EC2 IAM roles. If you have configured your instance to use IAM roles, DynamoDB will automatically select these credentials for use in your application, and you do not need to manually provide credentials in any other format.
 
 ```js
-var dynamo = require('dynamodb');
+var dynamo = require('dynamo-db');
 dynamo.AWS.config.update({region: "REGION"}); // region must be set
 ```
 
@@ -33,7 +33,7 @@ You can also directly pass in your access key id, secret and region.
   * Its recommend you not hard-code credentials inside an application. Use this method only for small personal scripts or for testing purposes.
 
 ```js
-var dynamo = require('dynamodb');
+var dynamo = require('dynamo-db');
 dynamo.AWS.config.update({accessKeyId: 'AKID', secretAccessKey: 'SECRET', region: "REGION"});
 ```
 
@@ -1065,14 +1065,10 @@ See the [examples][0] for more working sample code.
 
 DynamoDB is provided as-is, free of charge. For support, you have a few choices:
 
-- Ask your support question on [Stackoverflow.com](http://stackoverflow.com), and tag your question with **dynamodb**.
-- If you believe you have found a bug in dynamodb, please submit a support ticket on the [Github Issues page for dynamo](http://github.com/baseprime/dynamo/issues). We'll get to them as soon as we can.
+- Ask your support question on [Stackoverflow.com](http://stackoverflow.com), and tag your question with **dynamo-db**.
+- If you believe you have found a bug in dynamo-db, please submit a support ticket on the [Github Issues page for dynamo](http://github.com/mariopeixoto/dynamo-db/issues). We'll get to them as soon as we can.
 
-### Maintainers
-
-- [Greg Sabia Tucker](http://github.com/baseprime) ([@baseprime](https://twitter.com/bytecipher))
-
-## Authors
+## Original Author
 
 - [Ryan Fitzgerald](http://github.com/ryanfitz) ([@ryanfitz](https://twitter.com/theryanfitz))
 
@@ -1101,9 +1097,10 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-[0]: https://github.com/baseprime/dynamodb/tree/master/examples
+[0]: https://github.com/mariopeixoto/dynamo-db/tree/master/examples
 [1]: http://nodejs.org
 [2]: http://aws.amazon.com/sdkfornodejs
 [3]: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LSI.html
 [4]: http://aws.typepad.com/aws/2013/05/amazon-dynamodb-parallel-scans-and-other-good-news.html
 [5]: http://aws.amazon.com/dynamodb
+[6]: https://github.com/baseprime/dynamodb
